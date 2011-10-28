@@ -1,0 +1,10 @@
+.ticket-content {
+	font-size: 1.0em;
+	line-height: 17px;
+}
+
+.ticket-info .ticket-num {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}

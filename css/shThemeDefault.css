@@ -1,0 +1,62 @@
+/*--- Code: Default (Dark) Theme ---*/
+pre > code {
+display: block;
+}
+
+pre code, .code pre {
+	color: white;
+	background: #141414;
+	border: 1px solid #E6E6E6;
+	padding: 1em !important; /* remove if base important is removed, too */
+	/*overflow: auto;*/
+}
+.code ol, pre code .rownumber {
+	padding: 0 1em 0 2em;
+	color: white;
+}
+.annotation, .decorator, .doctype, .pi, .chunk, .shebang, .kw2 {
+	color:#d42aae;
+}
+.preprocessor {
+	color: white;
+	font-weight: bold;
+}
+pre code .comment, .template_comment, .javadoc, .diff .header {
+	color: #ababab;
+}
+.string, .st_h {
+	color: #4ddb4a;
+}
+.me1 {
+	color: white;
+}
+.kw4, .kw1, .keyword {
+	font-weight: bold;
+	color:#d42aae;
+}
+pre code .number, .nu0 {
+	color: #9c62ff;
+}
+pre code .comment, .co4, .co1 {
+	color: #808080;
+	font-style: italic;
+}
+.variable, .envvar, .re0 {
+	color: #3c96ff;
+}
+
+.diff .file .line {
+	width: 100%;
+	clear: both;
+	overflow: visible;
+	white-space: nowrap;
+	font-family: Monaco, Courier, monospace;
+	font-size: 12px;
+	color: white;
+	background: #141414;
+}
+.diff .file .removed, .re7 {
+	color: #f9c7fd;
+	background-color: #512b51;
+}
+.diff .file .added, .re8 {
