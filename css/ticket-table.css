@@ -1,0 +1,59 @@
+table {
+        width: 916px;
+        border-spacing: 0;
+        border-collapse: separate;
+}
+
+table a { text-decoration: none; }
+table a:hover { text-decoration: underline; }
+
+tr {
+	border-color: inherit;
+	display: table-row;
+	vertical-align: inherit;
+	text-align: left;
+}
+
+tr:hover td {
+        background-color: #43474C;
+}
+
+thead {
+	border-color: inherit;
+	display: table-header-group;
+	vertical-align: middle;
+}
+
+table.data th {
+	padding: 9px;
+	text-align: left;
+}
+
+th {
+	font-weight: bold;
+}
+
+td, th {
+    text-align: left;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
+table.data td {
+border-bottom: 1px solid #E0E0E0;
+padding: 9px;
+}
+
+.data .ttstate {
+white-space: nowrap;
+}
+
+td.issue {
+width: 40%;
+}
+
+.issues th, .issues td {
+	padding: 10px;
+	font-size: 0.8em;
+}

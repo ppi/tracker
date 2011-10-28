@@ -1,0 +1,53 @@
+[development]
+; ----- DATABASE ----
+db.host = localhost
+db.database = issue_tracker
+db.password = 
+db.username = root
+db.enabled = true
+db.mysql_default_fetch = assoc
+db.persistent = false
+
+; ----- CUSTOM APPLICATION VALUE ------------
+custom.github_username = dragoonis
+custom.default_repo = ppi-framework
+system.userAuthSalt = random_salt
+
+; ----- SYSTEM PARAMS -------
+system.autoloadLibs = github
+system.base_url = http://localhost/ppi-issue-tracker/
+system.email_errors = false
+system.developer_email = dragoonis@gmail.com
+system.maintenance = false
+system.masterController = home
+system.enable_caching = false
+system.adminEmail = noreply@myapp.com
+system.adminName = "MyApp Administrator"
+
+; ----- USERS -----
+system.regHash            = sha512
+system.usernameField      = email
+system.usernameFieldLabel = Email
+system.defaultUserRole    = member
+system.defaultUserTable   = users
+system.defaultUserPK      = id
+system.defaultUserActive  = 1
+
+; ----- ROLES ------
+system.roleMapping[] = guest::1
+system.roleMapping[] = member::2
+system.roleMapping[] = administrator::3
+system.roleMapping[] = developer::4
+
+; ----- SESSIONS ------
+system.sessionNamespace = __Issue_Tracker
+
+; ----- LAYOUT ------
+layout.view_theme = default
+layout.renderer = php
+
+; ----- REPOS ------
+repos[] = dragoonis:ppi-framework
+repos[] = dragoonis:ppi-website
+repos[] = dragoonis:ppi-issue-tracker
+repos[] = dragoonis:ppi-skeleton-app
