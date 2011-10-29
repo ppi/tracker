@@ -1,5 +1,7 @@
 <?php
-class APP_Model_Ticket_Comment extends APP_Model_Application {
+namespace App\Model\Ticket;
+use PPI\Core;
+class Comment extends \App\Model\Application {
 	protected $_table = 'ticket_comment';
 	protected $_primary = 'id';
 
@@ -10,12 +12,12 @@ class APP_Model_Ticket_Comment extends APP_Model_Application {
 	function getComments(array $p_aParams = array()) {
 
 		$cacheName = 'comments' . md5(serialize($p_aParams));
-		$cache = $this->getCache();
+		$cache = Core::getCache();
 		if($cache->exists($cacheName)) {
 			return $cache->get($cacheName);
 		}
 
-		$github = new Github_Client();
+		$github = new \Github_Client();
 		$comments = $github->getIssueApi()->getComments($p_aParams['username'], isset($p_aParams['repo']) ? $p_aParams['repo'] : 'ppi-framework', $p_aParams['ticket_id']);
 
 		foreach($comments as $key =>$comment) {

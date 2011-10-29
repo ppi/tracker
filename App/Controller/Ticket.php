@@ -14,7 +14,7 @@ class Ticket extends Application {
 			$filter                      = str_replace('-', ' ', $this->get($filter));
 			$ticketParams['repo']        = $repo;
 			$ticketParams['username']    = $this->getConfig()->custom->login_github;
-			$ticket                      = new APP_Model_Ticket();
+			$ticket                      = new \App\Model\Ticket();
 			$tickets                     = $ticket->getTickets($ticketParams);
 		}
 
@@ -42,12 +42,12 @@ class Ticket extends Application {
 		if($iTicketID < 1) {
 			throw new CoreException('Invalid Ticket ID');
 		}
-		$oTicket = new \APP\Model\Ticket();
+		$oTicket = new \App\Model\Ticket();
 		$aTicket = $oTicket->getTicket(array('id' => $iTicketID, 'repo' => $repo,'username' => $username));
 		if(count($aTicket) == 0) {
 			throw new CoreException('Unable to find ticket data');
 		}
-		$oComment  = new \APP\Model\Ticket\Comment();
+		$oComment  = new \App\Model\Ticket\Comment();
 		$aComments = $oComment->getComments(array('ticket_id' => $aTicket['id'], 'repo' => $repo, 'username' => $username));
 
 		$this->addCSS('ticket');

@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
-class User extends \PPI\Model {
+use PPI\Core;
+class Ticket extends \PPI\Model {
 
 	protected $_table = 'ticket';
 	protected $_primary = 'id';
@@ -51,14 +52,14 @@ class User extends \PPI\Model {
 
 	function getTickets(array $params = array()) {
 
-		$cache = $this->getCache();
+		$cache = Core::getCache();
 		$cacheName = 'tickets' . md5(serialize($params));
 
 		if($cache->exists($cacheName)) {
 			return $cache->get($cacheName);
 		}
 
-		$github  = new Github_Client();
+		$github  = new \Github_Client();
 		$tickets = array();
 
 		foreach($this->getConfig()->custom->labels as $label) {
@@ -67,7 +68,7 @@ class User extends \PPI\Model {
 				foreach($tmpIssues as $tmpIssue) {
 					$tickets[] = $tmpIssue;
 				}
-			} catch(Github_HttpClient_Exception $e) {
+			} catch(\Github_HttpClient_Exception $e) {
 			}
 		}
 
@@ -114,12 +115,12 @@ class User extends \PPI\Model {
 	function getTicket(array $p_aParams = array()) {
 
 		$cacheName = 'tickets' . md5(serialize($p_aParams));
-		$cache     = $this->getCache();
+		$cache     = Core::getCache();
 		if($cache->exists($cacheName)) {
 			return $cache->get($cacheName);
 		}
 
-		$github = new Github_Client();
+		$github = new \Github_Client();
 		$ticket = $github->getIssueApi()->show($p_aParams["username"], $p_aParams['repo'], $p_aParams['id']);
 
 		$ticket['id']          = $ticket['number'];

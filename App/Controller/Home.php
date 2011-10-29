@@ -5,8 +5,8 @@ class Home extends Application {
 	function index() {
 
 		$this->addjs('home');
-		$oTicket        = new \APP\Model\Ticket();
-		$oTicketCat     = new APP\Model\Ticket\Category();
+		$oTicket        = new \App\Model\Ticket();
+		$oTicketCat     = new \App\Model\Ticket\Category();
 		$customRepos    = $this->getConfig()->repos->toArray();
 		$repos          = array();
 		
