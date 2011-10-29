@@ -27,7 +27,7 @@ class Comment extends \App\Model\Application {
 			$comment['created']  = $comment['created_at'];
 
 			if (extension_loaded('sundown')) {
-				$sundown = new Sundown($comment['body'], array(
+				$sundown = new \Sundown($comment['body'], array(
 					"filter_html"=>true,
 					"no_image"=>true,
 					"no_links"=>true,

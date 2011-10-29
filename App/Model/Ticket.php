@@ -83,7 +83,7 @@ class Ticket extends \PPI\Model {
 			$ticket['username']      = $user['login'];
 
 			if (extension_loaded('sundown')) {
-				$sundown = new Sundown($ticket['body'], array(
+				$sundown = new \Sundown($ticket['body'], array(
 					"filter_html"       => true,
 					"no_image"          => true,
 					"no_links"          => true,
